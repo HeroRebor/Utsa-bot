@@ -20,7 +20,7 @@ class Conversation:
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue")
+            self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue , !About me")
         elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120)
             self.send_reply(line, "Waiting 60 seconds...")
@@ -40,6 +40,9 @@ class Conversation:
                 self.send_reply(line, "Challenge queue: {}".format(challengers))
             else:
                 self.send_reply(line, "No challenges queued.")
+         elif cmd == "About me":
+            self.send_reply(line, " HelloI am a bot made by @Soloboy4 . you can Challenge me anytime in case if the bot not work or have any prob ask @Soloboy4 by Inbox and also my V2 is going to be ready soon , When its constructed Challenge him any time
+                           ")       
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
