@@ -233,7 +233,8 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
         def __init__(self, room):
             self.room = room
     opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
-    conversation.send_reply(SendLine('player'), f'Hello this is bot made by @Soloboy4,Good Luck @{opponent}, Type !help for a list of command , I may reply too')
+    conversation.send_reply(SendLine('player'), f'Hello this is bot made by @Soloboy4,Good Luck @{opponent}, Type !help for a list of command , I may reply too')# Message to sent at start of the game
+    conversation.send_reply(SendLine('player'), f' Wow @{opponent}! This is a wonderful game, Well played. Hope we meet soon on  another game!')#Message to sent at end of the game 
     conversation.send_reply(SendLine('spectator'), f'Thanks a lot @{spectator} for watching this game')
     
     variant=game.perf_name
@@ -312,9 +313,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
                 break
         except StopIteration:
             break
-    
-    conversation.send_reply(SendLine('player'), f'Good Game')
-    conversation.send_reply(SendLine('spectator'), f'Good Game')
+   
 
     engine.stop()
     engine.quit()
