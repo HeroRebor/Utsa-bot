@@ -233,9 +233,12 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
         def __init__(self, room):
             self.room = room
     opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
-    conversation.send_reply(SendLine('player'), f'Hello this is bot made by @Soloboy4,Good Luck @{opponent}, Type !help for a list of command , I may reply too')# Message to sent at start of the game
-    conversation.send_reply(SendLine('player'), f' Wow @{opponent}! This is a wonderful game, Well played. Hope we meet soon on  another game!')#Message to sent at end of the game 
+    conversation.send_reply(SendLine('player'), f'Hello this is bot made by @Soloboy4,Good Luck @{opponent}, Type !help for a list of command , I may reply too, ')# Message to sent at start of the game
+    conversation.send_reply(SendLine('player'), f' Wow @{opponent}! This is a wonderful game, Well played. Hope we meet soon on  another game!')#Message to sent at end of the game
+    conservation.send_reply(SendLine('player'), f' Hmm the I can guess the game is going good, Also you can ask !How I played or !Did I played bad , I may reply too!') #Message to sent at after 10 moves done of the game
+    conservation.send_reply(SendLine('player'), f' After long time I am getting a 100 moves long game!')#Message to sent after 100 moves done on the game
     conversation.send_reply(SendLine('spectator'), f'Thanks a lot @{spectator} for watching this game')
+    
     
     variant=game.perf_name
 
