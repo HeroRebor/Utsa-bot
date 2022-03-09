@@ -41,8 +41,11 @@ class Conversation:
             else:
                 self.send_reply(line, "No challenges queued.")
          elif cmd == "About me":
-            self.send_reply(line, " HelloI am a bot made by @Soloboy4 . you can Challenge me anytime in case if the bot not work or have any prob ask @Soloboy4 by Inbox and also my V2 is going to be ready soon , When its constructed Challenge him any time
-                           ")       
+                self.send_reply(line, " Hello I am a bot made by @Soloboy4 . you can Challenge me anytime in case if the bot not work or have any prob ask @Soloboy4 by Inbox and also my V2 is going to be ready soon , When its constructed Challenge him any time")
+    def command(self, line, game, cmd):
+        if cmd == "Hoow I played" or cmd == "Did i played bad":
+            self.send_reply(line, "Not really you didnt played bad you played very well,  There was a few mistake on this game. Practise more and improve yourself more , I would be happy then :) )
+            
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
